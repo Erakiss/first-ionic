@@ -1,0 +1,12 @@
+
+<div *ngFor="let dog of dog">
+  <ion-input label="Name" [(ngModel)]="dog.name"></ion-input>
+  <ion-input label="Breed" [(ngModel)]="dog.breed"></ion-input>
+  <ion-datetime-button datetime={{dog.id}}>
+    <ion-modal [keepContentsMounted]="true">
+      <ng-template>
+        <ion-datetime id={{dog.id}} presentation="date" [(ngModel)]="dog.birthdate"></ion-datetime>
+      </ng-template>
+    </ion-modal>
+  </ion-datetime-button>
+</div>

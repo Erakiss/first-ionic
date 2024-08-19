@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>FirstDog</ion-title>
+    <ion-buttons aria-label="edit" slot="end">
+      <ion-button (click)="showForm = true">
+        <ion-icon name="create-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar> 
+</ion-header>
+
+
+
+<ion-content [fullscreen]="true">
+  
+<app-dog-form [dog]="dog" *ngIf="showForm"></app-dog-form>
+
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">FirstDog</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div *ngIf="!showForm">
+    <ion-card  *ngFor="let dogs of dog">
+      <ion-card-header>
+        <ion-card-title>{{dogs.name}}</ion-card-title>
+        <ion-card-subtitle>{{dogs.id}}</ion-card-subtitle>
+      </ion-card-header>
+    
+      <ion-card-content>
+        la race de ce chien est {{dogs.breed}}, il est né le {{dogs.birthdate}}.
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+
+
